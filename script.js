@@ -18,6 +18,10 @@ const left = document.querySelector(".left");
 const purchaseList = document.querySelector(".purchase-list")
 const itemsCount = document.querySelector("#items-count")
 const totalEl = document.querySelector("#total")
+const checkoutBtn = document.querySelector(".checkout-btn")
+const receipt = document.querySelector(".receipt")
+const receiptList = document.querySelector(".receipt-list")
+const receiptTotal = document.querySelector("#receipt-total")
 
 function renderItems(list) {
   left.innerHTML = "";
@@ -94,6 +98,41 @@ function renderSummary(){
   itemsCount.textContent = getItemCount()
   totalEl.textContent = `$${getTotal().toFixed(2)}`
 }
+
+function renderReceipt(){
+  receiptList.innerHTML = ""
+  Object.entries(orderedItems).forEach(([index, qty]) => {
+    const item = items[index]
+    const li = document.createElement("li")
+    li.classList.add("receipt-row")
+    li.innerHTML = `
+      <span>${qty} x ${item.productName}</span>
+      <span>$${(item.price * qty).toFixed(2)}</span>
+    `
+    receiptList.appendChild(li)
+  })
+  receiptTotal.textContent = `$${getTotal().toFixed(2)}`
+}
+
+function clearOrder(){
+  Object.keys(orderedItems).forEach(deleteListing)
+}
+
+checkoutBtn.addEventListener("click", () => {
+  if(getItemCount() === 0) return
+  renderReceipt()
+  receipt.showModal()
+})
+
+receipt.querySelector(".back-btn").addEventListener("click", () => {
+  receipt.close()
+})
+
+receipt.querySelector(".confirm-btn").addEventListener("click", () => {
+  clearOrder()
+  populateCart()
+  receipt.close()
+})
 
 renderItems(items);
 renderSummary();
