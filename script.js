@@ -71,6 +71,11 @@ function populateCart(){
       populateCart()
     })
     
+    li.querySelector(".remove-btn").addEventListener("click", () => {
+      deleteListing(index)
+      populateCart()
+    })
+    
     purchaseList.appendChild(li)
   })
 
@@ -106,6 +111,10 @@ function subtractItem(index){
     if(!Object.hasOwn(orderedItems,index)) return
     orderedItems[index] = orderedItems[index] - 1
     if(orderedItems[index] === 0){
-        delete orderedItems[index]
+        deleteListing(index)
     }
+}
+
+function deleteListing(index){
+    delete orderedItems[index]
 }
