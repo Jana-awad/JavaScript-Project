@@ -36,10 +36,7 @@ function renderItems(list) {
     `;
     left.appendChild(card);
 
-    card.addEventListener("click",()=>{
-        addItems(index)
-        populateCart()
-    })
+    card.addEventListener("click",()=> productsHandeler('add',index))
 
   });
 }
@@ -64,26 +61,30 @@ function populateCart(){
       <p class="item-total">$${(item.price * qty).toFixed(2)}</p>
       <button class="remove-btn"><i class="fa-regular fa-trash-can"></i></button>
     `
-
-    li.querySelector(".minus-btn").addEventListener("click", () => {
-      subtractItem(index)
-      populateCart()
-    })
-
-    li.querySelector(".add-btn").addEventListener("click", () => {
-      addItems(index)
-      populateCart()
-    })
-    
-    li.querySelector(".remove-btn").addEventListener("click", () => {
-      deleteListing(index)
-      populateCart()
-    })
+    li.querySelector(".minus-btn").addEventListener("click",()=> productsHandeler('subtract',index))
+    li.querySelector(".add-btn").addEventListener("click",()=> productsHandeler('add',index))
+    li.querySelector(".remove-btn").addEventListener("click",()=> productsHandeler('remove',index))
     
     purchaseList.appendChild(li)
   })
 
   renderSummary()
+}
+
+function productsHandeler(action,index){
+  switch (action){
+    case 'add':
+      addItems(index)
+      break;
+    case 'subtract':
+      subtractItem(index)
+      break;
+    case 'remove':
+      deleteListing(index)
+      break;  
+    default:
+  }
+  populateCart()
 }
 
 function getItemCount(){
