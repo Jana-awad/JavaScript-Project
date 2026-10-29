@@ -74,11 +74,6 @@ button,
 input {
   font-family: inherit;
 }
-.left {
-  background-color: white;
-  height: 100%;
-  width: 100%;
-}
 
 .right {
   background-color: white;
