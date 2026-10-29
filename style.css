@@ -18,6 +18,24 @@ body{
   background-color: #007d48;
   color: white;
 }
+.card {
+  border: 1px solid #ddd;
+  width: 150px;
+  gap: 20px;
+  border-radius: 10%;
+  overflow: hidden;
+  padding: 10px;
+}
+.left {
+  display: flex;
+  gap: 15px;
+}
+#price {
+  color: #007d48;
+  font-weight: bold;
+}
+#type {
+  opacity: 30%;
 
 
 .main-container{
