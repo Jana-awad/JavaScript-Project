@@ -17,46 +17,57 @@
       <i class="fa-solid fa-cart-shopping"></i>
       <p>Fresh Mart POS</p>
     </nav>
-    <div class="right"></div>
-    <div class="left">
-      <div class="card">
-        <img src="apple.jpg" alt="apple item" width="70px" />
-        <h3>Apples(1 kg)</h1>
-        <p id="type">Produce</p>
-        <p id="price">3.5$</p>
-      </div>
-        <div class="card">
-        <img src="banana.jpg" alt="banana item" width="70px" />
-        <h3>Bananas</h1>
-        <p id="type">Produce</p>
-        <p id="price">2.20$</p>
-      </div>
-        <div class="card">
-        <img src="apple.jpg" alt="apple item" width="70px" />
-        <h3>Milk(1 L)</h1>
-        <p id="type">Dairy</p>
-        <p id="price">1.8$</p>
-      </div>
-        <div class="card">
-        <img src="apple.jpg" alt="apple item" width="70px" />
-        <h3>Bread</h1>
-        <p id="type">Bakery</p>
-        <p id="price">2.5$</p>
-      </div>
-        <div class="card">
-        <img src="apple.jpg" alt="apple item" width="70px" />
-        <h3>Cheese</h1>
-        <p id="type">Diary</p>
-        <p id="price">6.9$</p>
-      </div>
-        <div class="card">
-        <img src="apple.jpg" alt="apple item" width="70px" />
-        <h3>Croissant</h1>
-        <p id="type">Bakery</p>
-        <p id="price">1.6$</p>
-      </div>
     <div class="main-container">
-        <div class="left"></div>
+        <div class="left">
+          <div class="card">
+            <span class="card-icon">🍎</span>
+            <h3>Apples (1kg)</h3>
+            <p class="type">Produce</p>
+            <p class="price">$3.50</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">🍌</span>
+            <h3>Bananas</h3>
+            <p class="type">Produce</p>
+            <p class="price">$2.20</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">🥛</span>
+            <h3>Milk 1L</h3>
+            <p class="type">Dairy</p>
+            <p class="price">$1.80</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">🧀</span>
+            <h3>Cheese</h3>
+            <p class="type">Dairy</p>
+            <p class="price">$6.90</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">🍞</span>
+            <h3>Bread</h3>
+            <p class="type">Bakery</p>
+            <p class="price">$2.50</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">🥐</span>
+            <h3>Croissant</h3>
+            <p class="type">Bakery</p>
+            <p class="price">$1.60</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">☕</span>
+            <h3>Coffee</h3>
+            <p class="type">Drinks</p>
+            <p class="price">$9.99</p>
+          </div>
+          <div class="card">
+            <span class="card-icon">🧃</span>
+            <h3>Orange Juice</h3>
+            <p class="type">Drinks</p>
+            <p class="price">$4.25</p>
+          </div>
+        </div>
         <div class="right">
           <h2>Current Order</h2>
 
@@ -74,22 +85,50 @@
               <p class="item-total">$1.60</p>
               <button class="remove-btn"><i class="fa-regular fa-trash-can"></i></button>
             </li>
+            <li class="purchase-item">
+              <div class="item-info">
+                <p class="item-name">Milk 1L</p>
+                <p class="item-price">$1.80 each</p>
+              </div>
+              <div class="item-qty">
+                <button><i class="fa-solid fa-minus"></i></button>
+                <span>2</span>
+                <button><i class="fa-solid fa-plus"></i></button>
+              </div>
+              <p class="item-total">$3.60</p>
+              <button class="remove-btn"><i class="fa-regular fa-trash-can"></i></button>
+            </li>
+            <li class="purchase-item">
+              <div class="item-info">
+                <p class="item-name">Bananas</p>
+                <p class="item-price">$2.20 each</p>
+              </div>
+              <div class="item-qty">
+                <button><i class="fa-solid fa-minus"></i></button>
+                <span>1</span>
+                <button><i class="fa-solid fa-plus"></i></button>
+              </div>
+              <p class="item-total">$2.20</p>
+              <button class="remove-btn"><i class="fa-regular fa-trash-can"></i></button>
+            </li>
           </ul>
 
           <div class="summary">
             <div class="summary-row">
               <span>Items</span>
-              <span id="items-count">1</span>
+              <span id="items-count">4</span>
             </div>
             <div class="summary-row">
               <span>Subtotal</span>
-              <span id="subtotal">$1.60</span>
+              <span id="subtotal">$7.40</span>
             </div>
             <div class="summary-row total">
               <span>Total</span>
-              <span id="total">$1.60</span>
+              <span id="total">$7.40</span>
             </div>
           </div>
+
+          <input type="number" class="amount-paid" placeholder="Amount paid" />
 
           <div class="order-actions">
             <button class="clear-btn">Clear Order</button>
