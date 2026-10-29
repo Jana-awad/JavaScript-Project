@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body{
-  background-color: #dddddd ;
+  background-color: #f3f3ec;
   font-family: "Noto Sans", Arial, sans-serif;
   height: 100vh;
   display: flex;
@@ -19,24 +19,38 @@ body{
   color: white;
 }
 .card {
-  border: 1px solid #ddd;
-  width: 150px;
-  gap: 20px;
-  border-radius: 10%;
-  overflow: hidden;
-  padding: 10px;
-}
-.left {
   display: flex;
-  gap: 15px;
+  flex-direction: column;
+  padding: 16px;
+  background-color: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  cursor: pointer;
 }
-#price {
+.card:hover {
+  border: 2px solid #111827;
+  padding: 15px;
+}
+.card-icon {
+  font-size: 34px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.card h3 {
+  font-size: 16px;
+  font-weight: normal;
+  color: #111827;
+}
+.type {
+  font-size: 14px;
+  color: #5b6b8c;
+}
+.price {
+  margin-top: 12px;
+  font-size: 16px;
   color: #007d48;
   font-weight: bold;
 }
-#type {
-  opacity: 30%;
-
 
 .main-container{
   flex: 1;
@@ -47,9 +61,18 @@ body{
 }
 
 .left{
-  background-color: white;
+  flex: 1;
   height: 100%;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-content: start;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+button,
+input {
+  font-family: inherit;
 }
 
 .right {
