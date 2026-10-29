@@ -16,6 +16,8 @@ const orderedItems ={}
 
 const left = document.querySelector(".left");
 const purchaseList = document.querySelector(".purchase-list")
+const itemsCount = document.querySelector("#items-count")
+const totalEl = document.querySelector("#total")
 
 function renderItems(list) {
   left.innerHTML = "";
@@ -71,9 +73,25 @@ function populateCart(){
     
     purchaseList.appendChild(li)
   })
+
+  renderSummary()
+}
+
+function getItemCount(){
+  return Object.values(orderedItems).reduce((sum, qty) => sum + qty, 0)
+}
+
+function getTotal(){
+  return Object.entries(orderedItems).reduce((sum, [index, qty]) => sum + items[index].price * qty, 0)
+}
+
+function renderSummary(){
+  itemsCount.textContent = getItemCount()
+  totalEl.textContent = `$${getTotal().toFixed(2)}`
 }
 
 renderItems(items);
+renderSummary();
 
 
 function addItems(index){

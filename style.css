@@ -180,14 +180,6 @@ input {
   font-weight: bold;
 }
 
-.amount-paid {
-  padding: 10px 12px;
-  border: 1px solid #e0e0d8;
-  border-radius: 8px;
-  background-color: #f3f3ec;
-  font-size: 15px;
-}
-
 .order-actions {
   display: flex;
   gap: 8px;
@@ -199,12 +191,6 @@ input {
   border-radius: 8px;
   font-size: 15px;
   cursor: pointer;
-}
-
-.clear-btn {
-  border: 1px solid #e0e0d8;
-  background-color: #f3f3ec;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .checkout-btn {
