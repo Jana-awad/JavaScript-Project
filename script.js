@@ -45,7 +45,6 @@ function populateCart(){
   purchaseList.innerHTML = ""
   Object.entries(orderedItems).forEach(([index,qty])=>{
     const item = items[index]
-    if(qty === 0) return;
     const li = document.createElement('li')
     li.classList.add("purchase-item")
     li.innerHTML = `
@@ -61,6 +60,7 @@ function populateCart(){
       <p class="item-total">$${(item.price * qty).toFixed(2)}</p>
       <button class="remove-btn"><i class="fa-regular fa-trash-can"></i></button>
     `
+
     li.querySelector(".minus-btn").addEventListener("click",()=> productsHandler('subtract',index))
     li.querySelector(".add-btn").addEventListener("click",()=> productsHandler('add',index))
     li.querySelector(".remove-btn").addEventListener("click",()=> productsHandler('remove',index))
@@ -87,11 +87,20 @@ function productsHandler(action,index){
 }
 
 function getItemCount(){
-  return Object.values(orderedItems).reduce((sum, qty) => sum + qty, 0)
+
+  let sum = 0;
+  Object.values(orderedItems).forEach((element)=>{
+    sum+=element
+  })
+  return sum
 }
 
 function getTotal(){
-  return Object.entries(orderedItems).reduce((sum, [index, qty]) => sum + items[index].price * qty, 0)
+  let sum = 0
+  Object.entries(orderedItems).forEach(([index,qty])=>{
+    sum += items[index].price * qty
+  })
+  return sum
 }
 
 function renderSummary(){
